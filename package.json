@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && node index.js"
+    "build": "babel src --out-dir dist"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,9 @@
     "telegraf": "^4.12.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "nodemon": "^3.0.0"
   }
 }

@@ -51,8 +51,9 @@ bot.hears(dayRegex, async (ctx) => {
   if (isValidDay(selectedDay) && isValidMonth(selectedMonth)) {
     ctx.reply(`Siz ${selectedMonth}, ${selectedDay} ni tanladingiz!`);
 
-    await saveTime(selectedMonth, selectedDay);
-    ctx.reply("O'zgarishlar muvaffaqqiyatli amalga oshirildi!");
+    const isSaved = await saveTime(selectedMonth, selectedDay);
+    if (isSaved) ctx.reply("O'zgarishlar muvaffaqqiyatli amalga oshirildi!");
+    else ctx.reply("Xatolik, qaytadan urining!");
   } else {
     ctx.reply("Xatolik, qaytadan urining!");
   }
